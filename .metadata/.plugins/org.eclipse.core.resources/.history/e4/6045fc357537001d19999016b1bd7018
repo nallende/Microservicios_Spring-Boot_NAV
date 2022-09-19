@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: servicio-productos
+        uri: lb://servicio-productos
+        predicates:
+          - Path=/api/productos/**
+          - Header= token, \d+
+          - Method=GET, POST
+          - Query=color, verde
+          - Cookie=coolor, azul  
+          
+        filters:
+          - StripPrefix=2
+          -  NAV = Hola Recuerde el Amor es Transferencia por Jaque Lacan, usuario, Nicolas
+      - id: servicio-items
+        uri: lb://servicio-items
+        predicates:
+          - Path=/api/items/**
+        filters:
+          - StripPrefix=2
+          - AddRequestHeader=token-request, 12345
+          - AddResonseHeader=response, 1234578
+          - AddRequestParameter=nombre, Nicolas

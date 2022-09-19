@@ -1,0 +1,5 @@
+package com.nav.springboot.app.productos.models.dao;
+
+public interface ProductoDao {
+
+}

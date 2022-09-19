@@ -1,0 +1,7 @@
+
+spring.application.name=servicio-productos
+server.port=${PORT:0}
+
+eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id}
+
+ eureka.client.eureka-service-url.defaultZone=http://localhost:8761/eureka

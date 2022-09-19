@@ -1,0 +1,39 @@
+package com.nav.springboot.app.gateway.filters.factory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.stereotype.Component;
+
+import reactor.core.publisher.Mono;
+
+@Component
+public class NAVGatewayFilterFactory extends AbstractGatewayFilterFactory<NAVGatewayFilterFactory.Configuracion> {
+
+	private final Logger logger = LoggerFactory.getLogger(NAVGatewayFilterFactory.class);
+
+	public static class Configuracion {
+		
+		private String mensaje;
+		private String cookieBalor;
+		private String cookieNombre;
+
+	}
+
+	@Override
+	public GatewayFilter apply(Configuracion config) {
+
+		return (exchange, chain) -> {
+
+			logger.info("ejectutando pre gateway filter factory");
+			return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+
+				logger.info("ejectutando post gateway filter factory");
+
+			}));
+
+		};
+	}
+
+}

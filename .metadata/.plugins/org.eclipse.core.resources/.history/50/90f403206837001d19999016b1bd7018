@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: servicio-productos
+        uri: lb://servicio-productos
+        predicates:
+          - Path=/api/productos/**
+        filters:
+          - StripPrefix=2
+          - name: NAV
+            args:
+              mensaje: Hola Recuerde el Amor es Transferencia
+              cookieNombre: usuario
+              cookieValor:  Nicolas
+      - id: servicio-items
+        uri: lb://servicio-items
+        predicates:
+          - Path=/api/items/**
+        filters:
+          - StripPrefix=2

@@ -1,0 +1,5 @@
+package com.nav.springboot.app.gateway.filters;
+
+public class NAV_GlobalFilters {
+
+}

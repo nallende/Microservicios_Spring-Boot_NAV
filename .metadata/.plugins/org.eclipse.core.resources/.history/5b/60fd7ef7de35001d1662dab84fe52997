@@ -1,0 +1,5 @@
+package com.nav.springboot.app.item.models.service;
+
+public interface ItemService {
+
+}

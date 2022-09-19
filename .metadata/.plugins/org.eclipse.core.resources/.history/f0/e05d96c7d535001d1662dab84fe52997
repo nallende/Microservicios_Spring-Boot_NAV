@@ -1,0 +1,5 @@
+package com.nav.springboot.app.productos.model.entity;
+
+public class Producto {
+
+}
